@@ -59,12 +59,13 @@ class Tester(object):
          m = getattr(module,dirname)
          if not callable(m):
             continue
-         log('Executing test '+ dirname)
          total +=1
          try:
             m()
             success +=1
+            log('Executing test %s : Success' %dirname)
          except Exception as e:
+            log('Executing test %s : Failed' %dirname)
             log(e)             
       return [total,success]
 
